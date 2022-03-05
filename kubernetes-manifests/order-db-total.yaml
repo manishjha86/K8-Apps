@@ -64,6 +64,9 @@ spec:
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: postgredb
+      imagePullSecrets:
+      - name: regcred
       volumes:
       - name: postgredb
-        emptyDir: {}
+        persistentVolumeClaim:
+          claimName: postgredb-claim

@@ -57,12 +57,12 @@ spec:
               name: mongodata
             - mountPath: /docker-entrypoint-initdb.d
               name: mongo-initdb
+      imagePullSecrets:
+      - name: regcred
       volumes:
         - name: mongodata
-          emptyDir: {}
+          persistentVolumeClaim:
+            claimName: mongodata-claim-catalog
         - name: mongo-initdb
           configMap:
             name: catalog-initdb-config
-#        - name: mongodata
-#          persistentVolumeClaim:
-#            claimName: mongodata
