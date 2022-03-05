@@ -55,14 +55,9 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/redis
               name: users-redis-data
-#            - mountPath: /etc/redis
-#              name: redis-config
+      imagePullSecrets:
+      - name: regcred
       volumes:
         - name: users-redis-data
-          emptyDir: {}
-#        - name: redis-config
-#          configMap:
-#            name: redis-config
-#            items:
-#              - key: redis-config
-#                path: redis.conf
+          persistentVolumeClaim:
+            claimName: users-cart-redis-claim

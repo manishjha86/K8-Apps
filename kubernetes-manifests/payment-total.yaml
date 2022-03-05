@@ -52,3 +52,4 @@ spec:
         ports:
         - containerPort: 9000
           name: payment
+

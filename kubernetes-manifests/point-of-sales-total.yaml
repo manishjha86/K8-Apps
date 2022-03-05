@@ -11,7 +11,6 @@ spec:
       protocol: TCP
       port: 7777
       targetPort: 7777
-      nodePort: 30431
   selector:
     app: acmefit
     service: pos
@@ -47,7 +46,7 @@ spec:
         - name: DATASTORE
           value: 'REMOTE'
         - name: FRONTEND_HOST
-          value: 'frontend.default.svc.cluster.local'
+          value: 'frontend.acme.svc.cluster.local'
         ports:
         - containerPort: 7777
           name: pos
